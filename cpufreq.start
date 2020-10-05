@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Set the governor to ondemand for all processors
+for cpu in /sys/devices/system/cpu/cpufreq/policy*; do
+  echo ondemand > ${cpu}/scaling_governor              
+done
+
+# Reduce the boost threshold to 75%
+echo 75 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+
+# Reduce the boost ignore_nice_load to 0
+echo 0 > /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load
+
+# Reduce the boost io_is_busy to 0
+echo 0 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+
+# Reduce the boost powersave_bias to 600
+echo 600 > /sys/devices/system/cpu/cpufreq/ondemand/powersave_bias
+
+# Reduce the boost sampling_down_factor to 1
+echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+
+# Reduce the boost sampling_rate to 20000
+echo 20000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
