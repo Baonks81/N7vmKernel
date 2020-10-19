@@ -5,8 +5,8 @@ for cpu in /sys/devices/system/cpu/cpufreq/policy*; do
   echo ondemand > ${cpu}/scaling_governor              
 done
 
-# Reduce the boost threshold to 75%
-echo 75 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+# Reduce the boost threshold to 70%
+echo 70 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 
 # Reduce the boost ignore_nice_load to 0
 echo 0 > /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load
