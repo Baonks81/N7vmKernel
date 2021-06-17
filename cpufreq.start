@@ -14,8 +14,8 @@ echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load
 # Reduce the boost io_is_busy to 0
 echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 
-# Reduce the boost powersave_bias to 300
-echo 300 > /sys/devices/system/cpu/cpufreq/ondemand/powersave_bias
+# Reduce the boost powersave_bias to 350
+echo 350 > /sys/devices/system/cpu/cpufreq/ondemand/powersave_bias
 
 # Reduce the boost sampling_down_factor to 1
 echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
