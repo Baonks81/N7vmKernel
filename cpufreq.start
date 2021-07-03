@@ -14,14 +14,14 @@ echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 # Reduce the boost powersave_bias to 0
 echo 0 > /sys/devices/system/cpu/cpufreq/ondemand/powersave_bias
 
-# Reduce the boost sampling_down_factor to 10
-echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+# Reduce the boost sampling_down_factor to 2
+echo 2 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 
-# Reduce the boost sampling_rate to 40000
-echo 40000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+# Reduce the boost sampling_rate to 20000
+echo 20000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
 
-# Reduce the boost threshold to 98%
-echo 98 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+# Reduce the boost threshold to 85%
+echo 85 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 
 for queue in /sys/block/*/queue
 do
@@ -43,10 +43,12 @@ do
 	echo 0 > "$queue/iostats"
 
 	# Reduce heuristic read-ahead in exchange for I/O latency
-	echo 32 > "$queue/read_ahead_kb"
+	echo 256 > "$queue/read_ahead_kb"
 
 	# Reduce the maximum number of I/O requests in exchange for latency
-	echo 32 > "$queue/nr_requests"
+	echo 512 > "$queue/nr_requests"
+
+	echo 2 > "$queue/rq_affinity"
 	
 	echo 128 > "$queue/max_sectors_kb"
 done
