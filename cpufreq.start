@@ -20,8 +20,8 @@ echo 2 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 # Reduce the boost sampling_rate to 20000
 echo 20000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
 
-# Reduce the boost threshold to 85%
-echo 85 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+# Reduce the boost threshold to 75%
+echo 75 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 
 for queue in /sys/block/*/queue
 do
