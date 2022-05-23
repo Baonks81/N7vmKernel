@@ -1,13 +1,59 @@
-RECOMMEND CONFIGURATION PMAOS:
-
+ANDRIOD:
 ondemand governor:
 
 ignore_nice_load=0
-io_is_busy=1
+io_is_busy=0
 powersave_bias=0
-sampling_down_factor=2
-sampling_rate=120000
+sampling_down_factor=1
+sampling_rate=10000
+sampling_rate_min=10000
 up_threshold=95
+
+conservative governor:
+
+down_threshold=20
+freq_step=5
+ignore_nice_load=0
+sampling_down_factor=1
+sampling_rate=300000
+sampling_rate_min=200000
+up_threshold=80
+
+interactive governor:
+
+above_hispeed_delay=20000
+boost=0
+boost_factor=0
+core_lock_count=0
+core_lock_period=200000
+go_hispeed_load=85
+go_maxspeed_load=99
+hispeed_freq=4294967295
+input_boost=0
+io_is_busy=0
+max_boost=0
+min_core_keep=2
+min_sample_time=0
+sustain_load=0
+timer_rate=20000
+
+intelliactive governor:
+above_hispeed_delay=40000
+boost=0
+boostpulse=
+boostpulse_duratiom=80000
+go_hispeed_load=95
+hispeed_freq=1000000
+io_is_busy=1
+min_sample_time=20000
+sampling_down_factor=20000
+sync_freq=475000
+target_loads=90
+timer_rate=10000
+timer_slack=40000
+two_phase_freq=475000,513000,620000,860000
+up_threshold_any_cpu_freq=860000
+up_threshold_any_cpu_load=85
 
 UBUNTU:
 conservative governor:
@@ -44,6 +90,4 @@ max_boost=0
 min_sample_time=30000
 sustain_load=0
 timer_rate=20000
-
-
 
