@@ -1,0 +1,17 @@
+[Unit]
+Description=Control ondemand CPU frequencies parameters
+After=iwd.service
+Wants=iwd.service
+BindsTo=iwd.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/cpufreq_start_ctl start
+ExecStop=/usr/bin/cpufreq_start_ctl stop
+Restart=on-failure
+SuccessExitStatus=3 4
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
