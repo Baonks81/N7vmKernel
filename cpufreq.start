@@ -177,7 +177,7 @@ do
 	write "$governor/sampling_rate" 20000
 
 	# Jump to hispeed frequency at this load percentage
-	write "$governor/up_threshold" 85
+	write "$governor/up_threshold" 75
 done
 
 for queue in /sys/block/*/queue
